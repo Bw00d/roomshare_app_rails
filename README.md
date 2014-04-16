@@ -10,3 +10,9 @@ This is an room share application styled of airBandB or couchsurfer. The purpose
 * The user will be able to post an accomodation
 * The user will be able to browse accomodations by location
 * The user will be able to book and accomodation
+
+
+### Testing mailer
+Please don't put mailcatcher into your Gemfile. It will conflict with your applications gems at some point.
+
+Instead, pop a note in your README stating you use mailcatcher. Simply run gem install mailcatcher then mailcatcher to get started.
