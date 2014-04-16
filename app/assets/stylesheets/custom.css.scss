@@ -1,7 +1,7 @@
 #header {
   background-color: DeepSkyBlue;
   a {
-    color: white;
+    color: Purple;
     text-decoration: none;
   }
   a:hover {
@@ -12,4 +12,11 @@
 
 .top-margin {
   padding-top: 50px;
+}
+.brand {
+  a {
+    color:white !important;
+    font-weight: bold;
+    font-size: 1.2em
+  }
 }

@@ -4,4 +4,5 @@ RoomshareApp::Application.routes.draw do
   devise_for :users, path_names: { sign_in: "login", sign_out: "logout" }
 
   resources :accomodations
+  resources :users, only: [:show]
 end

@@ -6,10 +6,4 @@ class Accomodation < ActiveRecord::Base
   validates :room_type, presence: true
   validates :price, presence: true
   validates :number_of_beds, presence: true
-
-  private
-    def accomodations_params
-      params.require(:accomodation).permit(:owner_id, :location, :room_type,
-                                           :price, :number_of_beds)
-    end
 end
