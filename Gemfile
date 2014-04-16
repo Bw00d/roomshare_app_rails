@@ -11,11 +11,17 @@ gem 'jquery-turbolinks'
 gem 'bootstrap-sass'
 gem 'bcrypt'
 gem 'factory_girl'
+gem 'paperclip', github: 'thoughtbot/paperclip'
+gem 'kaminari'
+gem 'devise'
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'quiet_assets'
+  gem "letter_opener"
+  gem 'mailcatcher'
+  gem 'meta_request'
 end
 
 group :development, :test do
@@ -23,6 +29,8 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'launchy'
+  gem 'faker'
+  gem 'pry'
 end
 
 group :test do
