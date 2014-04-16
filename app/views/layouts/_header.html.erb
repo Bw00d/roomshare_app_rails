@@ -1,8 +1,12 @@
 <div id="header" class="nav navbar navbar-fixed-top">
-    <ul class="nav navbar-nav pull-right">
 
+    <ul class="brand nav navbar-nav pull-left">
+      <li><%= link_to 'RoomsShare', root_url %></li>
+    </ul>
+
+
+    <ul class="nav navbar-nav pull-right">
       <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.email %></strong>.
           <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete %><li>
           <% else %>
