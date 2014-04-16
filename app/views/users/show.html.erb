@@ -1,3 +1,7 @@
 <h4><%= @user.email %></h4>
 
-
+<ul>
+  <% @user.accomodations.each do |i| %>
+    <li><%= link_to i.description, accomodation_path(i) %></li>
+  <% end %>
+</ul>
