@@ -32,13 +32,15 @@ feature 'signup' do
     expect(page).to have_title "Sign up | RoomShare"
   end
 
-  it 'should allow the user to create an account' do
-    user = FactoryGirl.build(:user)
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    fill_in "Password confirmation", with: user.password
-    click_button "Sign up"
-    expect(page).to have_content ("Welcome! You have signed up successfully.")
+  describe 'using valid information' do
+    it 'should allow the user to create an account' do
+      user = FactoryGirl.build(:user)
+      fill_in "Email", with: user.email
+      fill_in "Password", with: user.password
+      fill_in "Password confirmation", with: user.password
+      click_button "Sign up"
+      expect(page).to have_content ("Welcome! You have signed up successfully.")
+    end
   end
 
   describe 'using invalid information' do
@@ -63,20 +65,37 @@ feature 'login' do
   it 'should have the appropriate title' do
     expect(page).to have_title "Login | RoomShare"
   end
+
+  describe 'using valid information' do
+    it 'should allow an existing user to sign in' do
+      create_and_signin_user
+      expect(page).to have_content ("Edit profile")
+    end
+  end
+
+
+  describe 'using invalid information' do
+    it 'will display an error if email or password field is left blank' do
+      click_button "Login"
+      expect(page).to have_content ("Invalid email or password.")
+    end
+
+    it 'will display an error if email or password field is not correct' do
+      fill_in "Email", with: "hankathello.com"
+      fill_in "Password", with: "foobarbaz"
+      click_button "Login"
+      expect(page).to have_content ("Invalid email or password.")
+    end
+  end
 end
 
-
-
-
-
-
-
-
-
-
-
-
-
+feature 'logout' do
+  before { create_and_signin_user }
+  it 'should allow users to log out of their accounts' do
+    click_link "Logout"
+    expect(page).to have_content ("Logged out successfully.")
+  end
+end
 
 
 
