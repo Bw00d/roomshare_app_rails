@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  database: roomshare_app_development
+test:
+  adapter: postgresql
+  database: roomshare_app_test
