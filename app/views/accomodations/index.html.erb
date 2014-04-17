@@ -1,11 +1,16 @@
 <%= content_for(:title, "Accomodations") %>
 
+
 <div id="accomodations">
-  <ul>
-    <% if @accomodations != nil %>
-      <% @accomodations.each do |accomodation| %>
-      <li><%= accomodation.description %></li>
-      <% end %>
+    <% if @accomodations.length >= 1 %>
+    <h2>Available accomodations in <%= @accomodations.first.location %></h2>
+      <ul>
+        <% @accomodations.each do |accomodation| %>
+          <li><%= accomodation.description %></li>
+        <% end %>
+      </ul>
+    <% else %>
+    <h2>Sorry, there are no avaliable accomodations.</h2>
     <% end %>
   </ul>
 </div>

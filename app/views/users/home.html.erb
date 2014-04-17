@@ -42,15 +42,7 @@
             </div> -->
 
             <!-- <input type="hidden" name="source" value="bb"> -->
-            <%= submit_tag "Search", class: "btn btn-primary btn-large btn-contrast", id: "submit_location" %>
+            <%= submit_tag "Search", class: "btn btn-primary btn-large btn-contrast", id: "submit_location", name: nil %>
 
           <% end %>
-          <div id="accomodations">
-            <ul>
-              <% if @accomodations != nil %>
-                <% @accomdations.each do |accomodation| %>
-                <li><%= accomodation.description %></li>
-                <% end %>
-              <% end %>
-            </ul>
-          </div>
+
