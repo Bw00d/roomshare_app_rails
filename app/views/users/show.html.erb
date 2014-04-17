@@ -1,10 +1,11 @@
-<h1><%= @user.email %></h1>
+<h3><%= @user.email %></h3>
 
 
 <h4>Accomodations</h4>
-<%= link_to "Post a new accomodation", new_accomodation_path %>
-<ul>
-  <% @user.accomodations.each do |i| %>
-    <li><%= link_to i.description, accomodation_path(i) %></li>
+
+<ul id="user-accoms">
+  <% @user.accomodations.each do |accomodation| %>
+    <li><%= link_to accomodation.description, accomodation_path(accomodation)  %></li>
   <% end %>
 </ul>
+<%= link_to "Post a new accomodation", new_accomodation_path %>

@@ -1,0 +1,27 @@
+#header {
+  background-color: DeepSkyBlue;
+  a {
+    color: Purple;
+    text-decoration: none;
+  }
+  a:hover {
+   text-decoration: none;
+   color: red;
+  }
+}
+
+.top-margin {
+  padding-top: 50px;
+}
+.brand {
+  a {
+    color:white !important;
+    font-weight: bold;
+    font-size: 1.2em
+  }
+}
+#user-accoms {
+  a {
+    color: black;
+  }
+}

@@ -14,18 +14,18 @@ class AccomodationsController < ApplicationController
 
   def create
     @user = current_user
-    @accomodation = Accomodation.create(accomodations_params)
+    @accomodation = Accomodation.new(accomodations_params)
     if @accomodation.save
       @user.accomodations << @accomodation
       redirect_to user_path(@user)
     else
-      render new_accomodation_path
+      redirect :back
     end
   end
 
 private
     def accomodations_params
-      params.require(:accomodation).permit(:location, :room_type,
+      params.require(:accomodation).permit(:description, :location, :room_type,
                                            :price, :number_of_beds)
     end
 end
