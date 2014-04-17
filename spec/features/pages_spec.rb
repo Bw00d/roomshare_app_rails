@@ -97,5 +97,45 @@ feature 'logout' do
   end
 end
 
+feature 'user_show' do
+  before { create_and_signin_user }
+  before { visit user_path(@user) }
+
+  it 'should allow registered users to visit their show page' do
+    expect(page).to have_content ("Post a new accomodation")
+  end
+
+  it 'should have the appropriate title' do
+    expect(page).to have_title ("#{@user.email} | RoomShare")
+  end
+
+  describe 'visiting another users show page' do
+    it 'should not display link to create accomodation' do
+      @user_one = FactoryGirl.create(:user)
+      visit user_path(@user_one)
+      expect(page).to_not have_content "Post a new accomodation"
+    end
+  end
+
+  describe 'when entering valid information' do
+    it 'should allow the user to post a new accomodation' do
+      click_link "Post a new accomodation"
+      fill_in "Description", with: "Scary House"
+      fill_in "Price", with: 45.95
+      fill_in "Location", with: "New Jersey"
+      fill_in "Room type", with: "Mansion"
+      fill_in "Number of beds", with: 17
+      click_button "Create Accomodation"
+      expect(page).to have_content ("Scary House")
+    end
+  end
+  describe 'when entering invalid information' do
+    it 'will display errors if any fields are blank' do
+      click_link "Post a new accomodation"
+      click_button "Create Accomodation"
+      expect(page).to have_content "Location can't be blank"
+    end
+  end
+end
 
 

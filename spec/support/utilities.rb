@@ -10,3 +10,8 @@ def create_and_signin_user
   visit new_user_session_path
   sign_in
 end
+
+def create_accomodation
+  click_link "Post a new accomodation"
+  @accomodation = FactoryGirl.create(:accomodation)
+end

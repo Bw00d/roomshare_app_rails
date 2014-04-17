@@ -1,3 +1,4 @@
+<%= content_for(:title, @user.email) %>
 <h3><%= @user.email %></h3>
 
 
@@ -8,4 +9,6 @@
     <li><%= link_to accomodation.description, accomodation_path(accomodation)  %></li>
   <% end %>
 </ul>
-<%= link_to "Post a new accomodation", new_accomodation_path %>
+<% if @user == current_user %>
+  <%= link_to "Post a new accomodation", new_accomodation_path %>
+<% end %>

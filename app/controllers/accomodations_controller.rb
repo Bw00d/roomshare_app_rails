@@ -19,7 +19,7 @@ class AccomodationsController < ApplicationController
       @user.accomodations << @accomodation
       redirect_to user_path(@user)
     else
-      redirect :back
+      render 'new'
     end
   end
 
