@@ -1,0 +1,26 @@
+<%= render 'layouts/errors', :object => @accomodation %>
+
+<%= form_for @accomodation, remote: true do |f| %>
+  <%#= f.hidden_field :owner_id, value: current_user.id %>
+  <div class="form-group">
+    <%= f.label :description, "Description" %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="form-group">
+    <%= f.label :price, "Price" %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="form-group">
+    <%= f.label :location, "Location" %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="form-group">
+    <%= f.label :room_type, "Room type" %><br>
+    <%= f.text_field :room_type %>
+  </div>
+  <div class="form-group">
+    <%= f.label :number_of_beds, "Number of beds" %><br>
+    <%= f.text_field :number_of_beds %>
+  </div>
+  <%= f.submit(:class => "btn btn-primary") %>
+<% end %>

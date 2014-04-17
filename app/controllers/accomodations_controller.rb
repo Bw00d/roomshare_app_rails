@@ -17,7 +17,7 @@ class AccomodationsController < ApplicationController
     @accomodation = Accomodation.create(accomodations_params)
     if @accomodation.save
       @user.accomodations << @accomodation
-      redirect_to user_accomodations_path, :notice => "#{@product.name} added to your store"
+      redirect_to user_path(@user)
     else
       render new_accomodation_path
     end
@@ -25,7 +25,7 @@ class AccomodationsController < ApplicationController
 
 private
     def accomodations_params
-      params.require(:accomodation).permit(:owner_id, :location, :room_type,
+      params.require(:accomodation).permit(:location, :room_type,
                                            :price, :number_of_beds)
     end
 end
