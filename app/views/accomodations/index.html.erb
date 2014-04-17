@@ -1,0 +1,11 @@
+<%= content_for(:title, "Accomodations") %>
+
+<div id="accomodations">
+  <ul>
+    <% if @accomodations != nil %>
+      <% @accomodations.each do |accomodation| %>
+      <li><%= accomodation.description %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

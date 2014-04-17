@@ -1,7 +1,7 @@
 class AccomodationsController < ApplicationController
 
   def index
-
+    @accomodations = Accomodation.where(location: params[:search])
   end
 
   def show

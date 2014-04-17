@@ -1,1 +1,56 @@
 <%= content_for(:title, "") %>
+
+<h2>Find a place to stay</h2>
+<%= form_tag accomodations_path, id: "search_form", class: "custom show-search-options position-left form-inline", method: :get do %>
+   <%= text_field_tag :search, params[:search], id: "location", class: "location input-large form-control", placeholder: "Where do you want to go?" %>
+
+            <!-- <div id="checkinWrapper" class="input-wrapper">
+              <input type="text" id="checkin" class="checkin search-option input-large input-contrast ui-datepicker-target" name="checkin" placeholder="Check in">
+              <span class="search-area-icon"></span>
+            </div>
+            <div id="checkoutWrapper" class="input-wrapper">
+              <input type="text" id="checkout" class="checkout search-option input-large input-contrast ui-datepicker-target" name="checkout" placeholder="Check out">
+              <span class="search-area-icon search-area-icon-checkout"></span>
+            </div> -->
+
+            <!-- <div class="input-wrapper">
+              <div class="custom-select-container">
+                <select id="guests" name="guests" class="search-option small">
+                  <option value="1">1 Guest</option>
+                    <option value="2">2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests</option>
+                    <option value="5">5 Guests</option>
+                    <option value="6">6 Guests</option>
+                    <option value="7">7 Guests</option>
+                    <option value="8">8 Guests</option>
+                    <option value="9">9 Guests</option>
+                    <option value="10">10 Guests</option>
+                    <option value="11">11 Guests</option>
+                    <option value="12">12 Guests</option>
+                    <option value="13">13 Guests</option>
+                    <option value="14">14 Guests</option>
+                    <option value="15">15 Guests</option>
+                    <option value="16">16+ Guests</option>
+                </select> -->
+
+                <!-- <div class="btn btn-large dropdown-toggle input-contrast" aria-hidden="true">
+                  <span class="value language current">1 Guest</span>
+                  <i class="icon icon-caret-down icon-gray"></i>
+                </div>
+              </div>
+            </div> -->
+
+            <!-- <input type="hidden" name="source" value="bb"> -->
+            <%= submit_tag "Search", class: "btn btn-primary btn-large btn-contrast", id: "submit_location" %>
+
+          <% end %>
+          <div id="accomodations">
+            <ul>
+              <% if @accomodations != nil %>
+                <% @accomdations.each do |accomodation| %>
+                <li><%= accomodation.description %></li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>

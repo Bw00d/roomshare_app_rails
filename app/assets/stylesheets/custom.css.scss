@@ -28,3 +28,15 @@
 .errors {
   color: red;
 }
+#search_form {
+  input {
+    display: inline-block;
+  }
+  button {
+    display: inline-block;
+  }
+}
+#location {
+  width: 25%;
+  height: 32px;
+}
