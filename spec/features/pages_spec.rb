@@ -7,6 +7,10 @@ feature 'homepage' do
     expect(page).to have_title "RoomShare"
   end
 
+  it 'should have a search field' do
+    expect(page).to have_button "Search"
+  end
+
   describe 'header' do
     it '"Login" link should take you to the proper page' do
       click_link 'Login'
@@ -21,6 +25,21 @@ feature 'homepage' do
     it 'should have a "RoomShare" link' do
       click_link 'RoomShare'
       expect(page).to have_title "RoomShare"
+    end
+  end
+
+  describe 'using search form' do
+    it 'should return existing accomodations matching the form query' do
+      create_user_and_create_accomodation
+      visit root_url
+      fill_in "search", with: "#{@user.accomodations.first.location}"
+      click_button "Search"
+      expect(page).to have_content "#{@user.accomodations.first.location}"
+    end
+
+    it 'should return an error message if there are no matching accomodations' do
+      click_button "Search"
+      expect(page).to have_content "Sorry, there are no avaliable accomodations."
     end
   end
 end

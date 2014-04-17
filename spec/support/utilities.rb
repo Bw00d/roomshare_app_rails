@@ -11,7 +11,15 @@ def create_and_signin_user
   sign_in
 end
 
-def create_accomodation
+def create_user_and_create_accomodation
+  create_and_signin_user
+  click_link @user.email
+  click_link "Dashboard"
   click_link "Post a new accomodation"
-  @accomodation = FactoryGirl.create(:accomodation)
+  fill_in "Description", with: "Scary House"
+  fill_in "Price", with: 45.95
+  fill_in "Location", with: "New Jersey"
+  fill_in "Room type", with: "Mansion"
+  fill_in "Number of beds", with: 17
+  click_button "Create Accomodation"
 end
