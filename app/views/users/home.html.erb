@@ -13,13 +13,22 @@
     <h3>Not sure where to stay? Browse accomodations in these select cities.</h3>
     <div class="row featured-cities">
       <div class="new-york cities">
-        <h1>New York</h1>
+        <%= form_tag accomodations_path, method: :get do %>
+          <%= hidden_field_tag :search, "New York" %>
+          <%= submit_tag "New York", value: "New York" %>
+        <% end %>
       </div>
       <div class="paris cities">
-        <h1>Paris</h1>
+        <%= form_tag accomodations_path, method: :get do %>
+          <%= hidden_field_tag :search, "Paris" %>
+          <%= submit_tag "Paris", value: "Paris" %>
+        <% end %>
       </div>
       <div class="tokyo cities">
-        <h1>Tokyo</h1>
+        <%= form_tag accomodations_path, method: :get do %>
+          <%= hidden_field_tag :search, "Tokyo" %>
+          <%= submit_tag "Tokyo", value: "Tokyo" %>
+        <% end %>
       </div>
     </div>
   </div>

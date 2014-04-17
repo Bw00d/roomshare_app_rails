@@ -2,7 +2,6 @@ class AccomodationsController < ApplicationController
 
   def index
     @accomodations = Accomodation.where(location: params[:search])
-    @featured_accomodations = Accomodation.where(location: )
   end
 
   def show
@@ -27,6 +26,6 @@ class AccomodationsController < ApplicationController
 private
     def accomodations_params
       params.require(:accomodation).permit(:description, :location, :room_type,
-                                           :price, :number_of_beds)
+                                           :price, :number_of_beds, :search)
     end
 end
