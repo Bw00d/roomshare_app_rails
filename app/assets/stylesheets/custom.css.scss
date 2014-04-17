@@ -40,3 +40,42 @@
   width: 25%;
   height: 32px;
 }
+ .cities {
+  display: inline-block;
+  border: 1px solid gray;
+  height: 235px;
+  width: 29%;
+  float: left;
+  background-size: cover;
+  font-family: Courier;
+  color: white;
+  padding-top: 50px;
+  text-shadow: 1px 1px gray;
+ }
+ .new-york {
+  background-image: url('newyorkcity.jpg');
+  margin: 0 15px;
+  background-repeat: no-repeat;
+ }
+ .tokyo {
+  background-image: url('tokyo.jpg');
+  margin: 0 15px;
+  background-repeat: no-repeat;
+ }
+ .paris {
+  background-image: url('Paris.jpg');
+  margin: 0 15px;
+  background-repeat: no-repeat;
+ }
+.browse {
+  margin: 100px auto 0 auto;
+  text-align: center;
+}
+.featured-cities {
+  padding-left: 5%
+}
+#main-page {
+  margin-bottom: 100px;
+  margin: 100px auto 0 auto;
+  text-align: center;
+}
